@@ -10,7 +10,7 @@ pipeline {
         stage('Build and Test') {
             steps {
                 // build and test the Java Maven application
-                sh 'mvn clean install'
+                bat 'mvn clean install'
             }
         }
         stage('Deploy') {
@@ -19,7 +19,7 @@ pipeline {
                 // get the Tomcat manager username and password from environment variables
                 withCredentials([usernamePassword(credentialsId: 'tomcat-credentials', usernameVariable: 'deployer', passwordVariable: 'password')]) {
                   // deploy the WAR file using the Tomcat manager API
-                  sh "curl -v -u $TOMCAT_USERNAME:$TOMCAT_PASSWORD --upload-file target/*.war http://localhost:8080/manager/text/deploy?path=/app&update=true"
+                  bat "curl -v -u $TOMCAT_USERNAME:$TOMCAT_PASSWORD --upload-file target/*.war http://localhost:8080/manager/text/deploy?path=/app&update=true"
                 }
         }
     }
