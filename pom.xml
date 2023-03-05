@@ -11,7 +11,7 @@
 	<groupId>com.mindtree</groupId>
 	<artifactId>todo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 	<name>first-Spring-web-app</name>
 	<description>First Web Project Using Spring</description>
 	<properties>
