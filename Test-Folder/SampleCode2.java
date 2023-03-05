@@ -4,6 +4,6 @@ class Sample{
 public static void main(){
 
 System.out.println("Sample");
-System.out.println("Code 2");
+System.out.println("Code 2 --> To trigger jenkins build");
 }
 }
