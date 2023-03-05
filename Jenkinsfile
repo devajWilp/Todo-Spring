@@ -18,7 +18,11 @@ pipeline {
                 // deploy the WAR file to Tomcat
                 // get the Tomcat manager username and password from environment variables
                 // deploy the WAR file using the Tomcat manager API
-                bat "curl -v -u 'deployer:password' --upload-file target/*.war http://localhost:8080/manager/text/deploy?path=/app&update=true"
+                def tomcatUrl = "http://localhost:8080/manager/text/deploy?path=/app&update=true"
+                def warFile = "target\\*.war"
+                def authString = "deployer:password"
+      
+                bat "curl -v -u ${authString} --upload-file ${warFile} ${tomcatUrl}"
         }
     }
 }
