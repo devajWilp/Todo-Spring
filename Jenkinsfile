@@ -10,7 +10,7 @@ pipeline {
         stage('Build and Test') {
             steps {
                 // build and test the Java Maven application
-                sh 'mvn clean install'
+                bat 'mvn clean install'
             }
         }
         stage('Deploy') {
@@ -18,7 +18,7 @@ pipeline {
                 // deploy the WAR file to Tomcat
                 // get the Tomcat manager username and password from environment variables
                 // deploy the WAR file using the Tomcat manager API
-                sh 'curl -v -u "deployer:password" --upload-file target/*.war "http://localhost:8080/manager/text/deploy?path=/app&update=true"'
+                bat 'curl -v -u "deployer:password" --upload-file target/*.war "http://localhost:8080/manager/text/deploy?path=/app&update=true"'
         }
     }
 }
