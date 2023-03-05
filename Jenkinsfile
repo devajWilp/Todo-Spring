@@ -10,7 +10,7 @@ pipeline {
         stage('Build and Test') {
             steps {
                 // build and test the Java Maven application
-                sh 'mvn clean package'
+                sh 'mvn clean install'
             }
         }
         stage('Deploy') {
