@@ -19,7 +19,7 @@ pipeline {
                 // get the Tomcat manager username and password from environment variables
                 withCredentials([usernamePassword(username: 'deployer', password: 'password')]) {
                   // deploy the WAR file using the Tomcat manager API
-                  bat "curl -v -u $TOMCAT_USERNAME:$TOMCAT_PASSWORD --upload-file target/*.war http://localhost:8080/manager/text/deploy?path=/app&update=true"
+                  bat "curl -v -u $username:$password --upload-file target/*.war http://localhost:8080/manager/text/deploy?path=/app&update=true"
                 }
         }
     }
